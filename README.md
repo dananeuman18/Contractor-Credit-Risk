@@ -26,8 +26,8 @@ Current Scope: 6 weeks, 150 Hours, $0\
 Future Scope: TBD based on outcome\
 
 ## Data
-Security Exchange Commission (SEC) EDGAR sytem\
-Public Contractors SIC Codes: 1700, 1731, 1600, 1623\
+Security Exchange Commission (SEC) EDGAR system\
+Public Contractors SIC Codes: 1700, 1731, 1600, 1623
 
 ## Limitations
 Limitations: public companies only, which are larger than most contractors, and structured financial data is available mainly from 2009 onward.
