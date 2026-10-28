@@ -9,25 +9,25 @@ A growing contractor may have the operational capability to take on larger proje
 3. Early warning signs: Which financial indicators act as yellow flags when large projects are moving fast, and how should they be prioritized and monitored?
 
 ## Data Project:
-Phase 1: Capital Capacity Benchmarking
+Phase 1: Capital Capacity Benchmarking\
 Phase 2: Modeling and Ranking Capital Distress Signals
 
 ## Business Metrics:
-Sustainable Growth Rate
-Efficiency for capital allocation
-Warning signals to mitigate risks
+Sustainable Growth Rate\
+Efficiency for capital allocation\
+Warning signals to mitigate risks\
 
 ## ML Metrics: 
-Precision
+Precision\
 Recall
 
 ## Budget: 
-Current Scope: 6 weeks, 150 Hours, $0
-Future Scope: TBD based on outcome
+Current Scope: 6 weeks, 150 Hours, $0\
+Future Scope: TBD based on outcome\
 
 ## Data
-Security Exchange Commission (SEC) EDGAR sytem
-Public Contractors SIC Codes: 1700, 1731, 1600, 1623
+Security Exchange Commission (SEC) EDGAR sytem\
+Public Contractors SIC Codes: 1700, 1731, 1600, 1623\
 
 ## Limitations
 Limitations: public companies only, which are larger than most contractors, and structured financial data is available mainly from 2009 onward.
