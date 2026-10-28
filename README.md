@@ -23,7 +23,7 @@ Recall
 
 ## Budget: 
 Current Scope: 6 weeks, 150 Hours, $0\
-Future Scope: TBD based on outcome\
+Future Scope: TBD based on outcome
 
 ## Data
 Security Exchange Commission (SEC) EDGAR system\
