@@ -15,7 +15,7 @@ Phase 2: Modeling and Ranking Capital Distress Signals
 ## Business Metrics:
 Sustainable Growth Rate\
 Efficiency for capital allocation\
-Warning signals to mitigate risks\
+Warning signals to mitigate risks
 
 ## ML Metrics: 
 Precision\
