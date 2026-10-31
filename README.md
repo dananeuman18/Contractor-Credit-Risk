@@ -22,7 +22,7 @@ Precision\
 Recall
 
 ## Budget: 
-Current Scope: 6 weeks, 150 Hours, $0\
+Current Scope: 3 weeks, 60 Hours, $0\
 Future Scope: TBD based on outcome
 
 ## Data
