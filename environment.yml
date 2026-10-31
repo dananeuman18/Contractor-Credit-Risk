@@ -6,3 +6,5 @@ dependencies:
 - requests
 - pandas
 - lxml
+- sqlalchemy
+- psycopg2

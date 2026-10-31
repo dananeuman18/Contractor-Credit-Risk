@@ -2,18 +2,35 @@ import requests
 import pandas as pd
 import time
 from io import StringIO
-from config import SEC_USER_AGENT
+from sqlalchemy import create_engine
+from config import SEC_USER_AGENT, DB_URL
 
 HEADERS = {"User-Agent": SEC_USER_AGENT}
 
-url = "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=1731&start=0&count=100"
-response = requests.get(url, headers=HEADERS, timeout=30)
-print(response.status_code)
+SIC_CODES = ["1700", "1731", "1600", "1623"]
 
-tables = pd.read_html(StringIO(response.text))
-companies = tables[0]
+frames = []
+for sic in SIC_CODES:
+    start = 0
+    while start < 1000:
+        url = f"https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC={sic}&start={start}&count=100"
+        response = requests.get(url, headers=HEADERS, timeout=30)
+        print(sic, start, response.status_code)
+        try:
+            table = pd.read_html(StringIO(response.text))[0]
+        except ValueError:
+            break
+        table["SIC"] = sic
+        frames.append(table)
+        time.sleep(0.15)
+        if len(table) < 100:
+            break
+        start += 100
+
+companies = pd.concat(frames, ignore_index=True)
 companies["CIK"] = companies["CIK"].astype(str).str.zfill(10)
-print(companies.shape)
+print(companies["SIC"].value_counts())
+
 
 def get_filing_summary(cik):
     url = f"https://data.sec.gov/submissions/CIK{cik}.json"
@@ -48,5 +65,14 @@ for cik in companies["CIK"]:
 
 summary = pd.DataFrame(results)
 companies = companies.merge(summary, on="CIK")
-companies.to_csv("data/silver/companies_1731.csv", index=False)
+
+companies = companies.rename(columns={
+    "CIK": "cik",
+    "Company": "company",
+    "State/Country": "state_country",
+    "SIC": "sic",
+})
+
+engine = create_engine(DB_URL)
+companies.to_sql("companies", engine, if_exists="replace", index=False)
 print(companies.sort_values("n_10k", ascending=False))
